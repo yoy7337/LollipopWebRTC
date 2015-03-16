@@ -94,7 +94,7 @@ var PeerManager = (function () {
         from = message.from,
         pc = (peerDatabase[from] || addPeer(from)).pc;
 
-    console.log('received ' + type + ' from ' + from);
+    console.log('received: ' + JSON.stringify(message));
   
     switch (type) {
       case 'init':
@@ -120,7 +120,7 @@ var PeerManager = (function () {
     }
   }
   function send(type, to, payload) {
-    console.log('sending ' + type + ' to ' + to);
+    console.log('send type:' + type + ', to: ' + to + ' paylod: ' + JSON.stringify(payload));
 
     connection.emit('message', {
       to: to,
